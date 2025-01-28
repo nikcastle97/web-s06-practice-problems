@@ -20,13 +20,17 @@
     PROBLEM 1 - Initialize a `selection` component state:
     The goal is to track the current value of the dropdown (i.e. the selected value).
     Fix the first line inside App() to properly initialize a `selection` state with an initial
-    value of empty string. In the same line, initialize a `setSelection` state updater.
+    value of empty string. 
+    
+    In the same line, initialize a `setSelection` state updater.
     You already have `useState` imported at the top of the script.
 
     PROBLEM 2 - Implement event handlers `onSelect` and `onReset`:
     The `onSelect` function handles events of type change on the dropdown. When the user changes
     the value in the dropdown, the selected value appears inside `event.target.value`.
-    Grab this string and store it in the `selected` state. Next, update the `onReset`
+    Grab this string and store it in the `selected` state. 
+    
+    Next, update the `onReset`
     function to reset the `selected` state back to its initial value of empty string.
 
     PROBLEM 3 - Render the correct information in the JSX for each state of `selected`:
@@ -42,12 +46,15 @@
       go: "Golang",
     }
     function App() {
-      let selection = '' // 👈 PROBLEM 1
+      const [selection, setSelected] = useState(``) // 👈 PROBLEM 1
       const onSelect = event => {
-        console.log('💥 a change happened...!') // 👈 PROBLEM 2
+        const { value } = event.target
+        setSelected(value)
+        // console.log('💥 a change happened...!') // 👈 PROBLEM 2
       }
       const onReset = () => {
-        console.log('💥 a click happened...!') // 👈 PROBLEM 2
+        setSelected(``)
+        // console.log('💥 a click happened...!') // 👈 PROBLEM 2
       }
       return (
         <section>
