@@ -17,9 +17,15 @@
   <script type="text/babel">
     /*
     PROBLEM 1
+
     In the HTML-like syntax below (called JSX) we are mostly using hard-coded text content,
-    like <h2>Writing Proper JSX</h2>. For this task, you will replace each element's text
-    with the data inside the object `texts`. Use expressions inside curly braces of the JSX
+    like,
+    <h2>Writing Proper JSX</h2>.
+    
+    For this task, you will replace each element's text
+    with the data inside the object `texts`.
+    
+    Use expressions inside curly braces of the JSX
     to place the data where it needs to go. The <h1> is already done for you.
 
     PROBLEM 2
@@ -33,24 +39,32 @@
     function App() {
       let texts = {
         welcomeH1: 'Welcome to React!',
-        properH2: 'Writing Proper JSX',
-        li1: 'Close your tags',
-        li2: 'Return a single top-level element',
+        properH2: '"Writing Proper JSX"',
+        li1: 'Close your tags...',
+        li2: 'Return a single top-level element...',
+        liAnd: 'Finally, ',
         li3: 'Use className instead of class',
+        secondSection: 'Thanks for Learning React!',
       }
       let attributes = ["greet", "rulesOfJSX"]
       return (
-        <section className="greet">
-          <h1>{texts.welcomeH1}</h1> {/* done for you */}
-          <div>
-            <h2>Writing Proper JSX</h2>
-            <ol id="rulesOfJSX">
-              <li>Close your tags</li>
-              <li>Return a single top-level element</li>
-              <li>Use className instead of class</li>
-            </ol>
-          </div>
-        </section>
+        <>
+          <section className={attributes[0]}>
+            <h1>{texts.welcomeH1}</h1> {/* done for you */}
+            <div>
+              <h2>{texts.properH2}</h2>
+              <ol id={attributes[1]}>
+                <li>{texts.li1}</li>
+                <li>{texts.li2}</li>
+                <p>{texts.liAnd}</p>
+                <li>{texts.li3}</li>
+              </ol>
+            </div>
+          </section>
+          <section>
+            <h1>{texts.secondSection}</h1>
+          </section>
+        </>
       )
     }
     ReactDOM.createRoot(document.getElementById('root')).render(<App />)
